@@ -1,0 +1,15 @@
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `phone` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `gender` char(255) NOT NULL,
+  `trueName` varchar(255) DEFAULT NULL,
+  `birthday` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `personalBrief` varchar(255) DEFAULT NULL,
+  `avatarImgUrl` text NOT NULL,
+  `recentlyLanded` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8
+
