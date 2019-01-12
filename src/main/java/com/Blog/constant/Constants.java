@@ -9,6 +9,10 @@ package com.Blog.constant;
 public interface Constants {
 
     /*
+     * 返回常量0
+     */
+    String STATIC_NONE = "0";
+    /*
      * 返回常量1
      */
     String STATIC_ONE = "1";
