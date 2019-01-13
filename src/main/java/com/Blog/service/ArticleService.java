@@ -7,8 +7,8 @@ package com.Blog.service;
  */
 
 import com.Blog.model.Article;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -23,4 +23,15 @@ public class TimeUtil {
         return now.format(format);
     }
 
+    /**
+     * 格式化日期
+     * 使用线程安全的DateTimeFormatter
+     * @return “年-月-日 时:分”字符串
+     */
+    public String getFormatDateForFive(){
+
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        return now.format(format);
+    }
 }

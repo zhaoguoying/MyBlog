@@ -1,12 +1,12 @@
 package com.Blog;
 
 import com.Blog.mapper.*;
+import com.Blog.model.Comment;
 import com.Blog.repository.mybatis.UserRepository;
+import com.Blog.service.ArticleService;
 import com.Blog.service.UserService;
-import com.Blog.service.impl.TagServiceImpl;
-import com.Blog.service.impl.VisitorServiceImpl;
+import com.Blog.service.impl.*;
 import com.Blog.service.security.CustomUserServiceImpl;
-import net.sf.json.JSONArray;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +46,77 @@ public class MyBlogApplicationTests {
 
 	@Autowired
 	CategoryMapper categoryMapper;
+
+	@Autowired
+    CategoryServiceImpl categoryServiceImpl;
+
+	@Autowired
+    ArticleService articleService;
+
+	@Autowired
+	ArticleServiceImpl articleServiceImpl;
+
+	@Autowired
+	CommentMapper commentMapper;
+
+	@Autowired
+	CommentServiceImpl commentServiceImpl;
+
+	Comment comment = new Comment();
+
+	@Test
+	public void commentNum_test(){
+		System.out.println(
+				commentServiceImpl.commentNum());
+	}
+
+	@Test
+	public void replyReplyReturn_test(){
+		System.out.println(
+				commentServiceImpl.replyReplyReturn(comment,"赵国应","赵国应"));
+	}
+
+	@Test
+	public void findCommentByArticleIdAndOriginalAuthorfindReplyByArticleIdAndOriginalAuthorAndPid_test(){
+		System.out.println(
+				commentServiceImpl.findReplyByArticleIdAndOriginalAuthorAndPid(1533196734,"赵国应",2));
+	}
+
+	@Test
+	public void findCommentByArticleIdAndOriginalAuthor_test(){
+		System.out.println(
+				commentServiceImpl.findCommentByArticleIdAndOriginalAuthor(1533196734,"赵国应","赵国应"));
+	}
+
+	@Test
+	public void countReplyNumById_test(){
+		System.out.println(commentMapper.countReplyNumById(0));
+	}
+
+	@Test
+	public void findFiveNewComment_test(){
+		System.out.println(commentMapper.findFiveNewComment());
+	}
+
+	@Test
+	public void findArticleByTag_s_test(){
+		System.out.println(articleService.findArticleByTag("随笔感悟",20,25));
+	}
+
+	@Test
+	public void findArticleByTag_test(){
+		System.out.println(articleServiceImpl.findArticleByTag("随笔感悟",10,5));
+	}
+
+    @Test
+    public void countArticle_s_test(){
+        System.out.println(articleService.countArticle());
+    }
+
+	@Test
+    public void findCategoriesNameAndArticleNum_test(){
+        System.out.println(categoryServiceImpl.findCategoriesNameAndArticleNum());
+    }
 
 	@Test
 	public void findCategoriesName_test(){
