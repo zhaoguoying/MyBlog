@@ -6,13 +6,12 @@ spring:
     username: root
     password: 123456
 
-  devtools:
-    restart:
-      enabled: true
-      additional-paths:
-        - src/main/java
-      exclude: WEB-INF/**
-
+ # devtools:
+ #   restart:
+ #    enabled: true
+ #    additional-paths:
+ #      - src/main/java
+ #    exclude: WEB-INF/**
 
   redis:
     host: localhost

@@ -3,10 +3,12 @@ package com.Blog;
 import com.Blog.mapper.*;
 import com.Blog.model.Comment;
 import com.Blog.repository.mybatis.UserRepository;
+import com.Blog.service.ArchiveService;
 import com.Blog.service.ArticleService;
 import com.Blog.service.UserService;
 import com.Blog.service.impl.*;
 import com.Blog.service.security.CustomUserServiceImpl;
+import com.Blog.utils.MD5Util;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class MyBlogApplicationTests {
 
 	@Autowired
 	UserMapper userMapper;
+
+	@Autowired
+	UserServiceImpl userServiceImpl;
 
 	@Autowired
 	UserService userService;
@@ -61,6 +66,47 @@ public class MyBlogApplicationTests {
 
 	@Autowired
 	CommentServiceImpl commentServiceImpl;
+
+    @Autowired
+    LeaveMessageServiceImpl leaveMessageServiceImpl;
+
+	@Autowired
+	LeaveMessageMapper leaveMessageMapper;
+
+	@Autowired
+    PrivateWordMapper privateWordMapper;
+
+	@Autowired
+	ArchiveService archiveService;
+
+	@Test
+	public void findArchiveNameAndArticleNum_test(){
+		System.out.println(archiveService.findArchiveNameAndArticleNum());
+	}
+
+
+	@Test
+    public void getPrivateWordByPublisher_test(){
+        System.out.println(privateWordMapper.getPrivateWordByPublisher(1));
+    }
+
+	@Test
+	public void getAllPrivateWord_test(){
+		System.out.println(privateWordMapper.getAllPrivateWord());
+	}
+
+    @Test
+    public void publishLeaveMessage_test(){
+    	/*
+    	 * 留言测试
+    	 */
+        leaveMessageServiceImpl.publishLeaveMessage("留言测试哈哈","1","赵国应");
+    }
+
+	@Test
+	public void publishLeaveMessageReply_test(){
+		System.out.println(leaveMessageMapper.findAllLeaveMessage("friendlylink",0));
+	}
 
 	Comment comment = new Comment();
 
@@ -208,6 +254,16 @@ public class MyBlogApplicationTests {
 		System.out.println(tagService.findTagsCloud());
 	}
 
+	@Test
+	public void updataPassword_test(){
+		MD5Util md5Util = new MD5Util();
+		String md5Password = md5Util.encode("123456");
+		userService.updatePasswordByPhone("15286221111",md5Password);
+	}
+	@Test
+	public void updataPassword_impl_test(){
+		userServiceImpl.updatePasswordByPhone("15286221111","111111111");
+	}
 
 }
 

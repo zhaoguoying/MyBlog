@@ -8,3 +8,5 @@ SimpleGrantedAuthority 有机会在去了解
 Logger 日志
 
 @Param(String) 两个及两个以上的参数需要使用，一个参数可以不用使用
+
+@Data注解，不用去写get,set等方法

@@ -6,7 +6,7 @@ import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerF
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+
 /*
  * 作者：赵国应
  * 时间：2019-1-10

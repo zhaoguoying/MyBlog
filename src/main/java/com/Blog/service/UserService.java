@@ -7,7 +7,7 @@ package com.Blog.service;
  */
 
 import com.Blog.model.User;
-import org.json.JSONObject;
+import net.sf.json.JSONObject;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface UserService {

@@ -31,8 +31,8 @@ public class LoginControl {
                                  @RequestParam("newPassword") String newPassword,
                                  HttpServletRequest request) {
         String trueMsgCode = (String) request.getSession().getAttribute("trueMsgCode");
-        System.out.println(trueMsgCode);
-        if (!authCode.equals("111")) {
+        //System.out.println(trueMsgCode);
+        if (!authCode.equals(trueMsgCode)) {
             return Constants.STATIC_NONE;
         }
         User user = userService.findUserByPhone(phone);

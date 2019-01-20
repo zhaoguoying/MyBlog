@@ -11,7 +11,7 @@ import com.Blog.constant.RoleConstant;
 import com.Blog.mapper.UserMapper;
 import com.Blog.model.User;
 import com.Blog.service.UserService;
-import org.json.JSONObject;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;

@@ -38,7 +38,7 @@ public class CustomUserServiceImpl implements UserDetailsService {
 
         User user = userRepository.findByPhone(phone);
 
-        if(user ==null){
+        if(user == null){
             throw new UsernameNotFoundException("用户不存在！");
         }
 

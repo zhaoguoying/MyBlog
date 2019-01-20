@@ -8,7 +8,7 @@ package com.Blog.service.impl;
 
 import com.Blog.mapper.VisitorMapper;
 import com.Blog.service.VisitorService;
-import org.json.JSONObject;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

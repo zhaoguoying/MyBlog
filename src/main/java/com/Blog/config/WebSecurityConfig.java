@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             MD5Util md5Util = new MD5Util();
             @Override
             public String encode(CharSequence password) {
-                    return md5Util.encode((String) password);
+                return md5Util.encode((String) password);
             }
 
             @Override
@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/ali").hasAnyRole("ADMIN")
                 .antMatchers("/superadmin").hasAnyRole("SUPERADMIN")
                 .and()
-                .formLogin().loginPage("/login").failureUrl("/login?error").defaultSuccessUrl("/")
+                .formLogin().loginPage("/login").defaultSuccessUrl("/").failureUrl("/login?error")
                 .and()
                 .logout().logoutUrl("/logout").logoutSuccessUrl("/");
 
